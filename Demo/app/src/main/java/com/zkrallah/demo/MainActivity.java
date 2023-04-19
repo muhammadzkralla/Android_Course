@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "selected : " + selected.getText(), Toast.LENGTH_SHORT).show();
         });
 
-        // This Click Listener shows us whether the CheckBod is checked or not.
+        // This Click Listener shows us whether the CheckBox is checked or not.
         binding.checkbox.setOnClickListener(v -> {
             if (binding.checkbox.isChecked()) {
                 Toast.makeText(MainActivity.this, "checked", Toast.LENGTH_SHORT).show();
