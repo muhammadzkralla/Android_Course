@@ -45,7 +45,8 @@ public class Main {
         circleOne.setRadius(12);
         System.out.println("The Length of the Rectangle became : " + rectangleOne.getLength());
         System.out.println("The width of the Rectangle became : " + rectangleOne.getWidth());
-        System.out.println("The Radius of the Circle became : " + circleOne.getRadius() );
+        System.out.println("The Radius of the Circle became : " + circleOne.getRadius());
+        // خلي بالك انا كدا غيرت الطول والعرض ونصف القطر فا بالتالي المساحات هتتغير
 
         System.out.println("\n ********************************************** \n");
 
