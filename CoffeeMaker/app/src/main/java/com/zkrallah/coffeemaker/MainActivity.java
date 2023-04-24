@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             RadioButton selected = MainActivity.this.findViewById(checkedId);
             // Clear the order before placing a new one.
             order.setLength(0);
-            
+
             order.append("Selected Coffee : ");
             order.append(selected.getText().toString());
         });
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
             // Check if the milk item is checked.
             if (binding.milk.isChecked()) {
-                order.append("\nwith Addon : ");
+                order.append("\nwith Add-on : ");
                 order.append("Milk");
             }
 
             // Check if the whipped cream item is checked.
             if (binding.whippedCream.isChecked()) {
-                order.append("\nWith Addon : ");
+                order.append("\nWith Add-on : ");
                 order.append("Whipped Cream");
             }
 
