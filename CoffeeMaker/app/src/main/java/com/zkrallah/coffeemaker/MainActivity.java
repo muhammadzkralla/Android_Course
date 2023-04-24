@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         // Getting the selected coffee from the RadioGroup.
         binding.group.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton selected = MainActivity.this.findViewById(checkedId);
+            // Clear the order before placing a new one.
+            order.setLength(0);
+            
             order.append("Selected Coffee : ");
             order.append(selected.getText().toString());
         });
