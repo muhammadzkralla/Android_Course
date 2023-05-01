@@ -11,6 +11,7 @@ import com.zkrallah.coffeemaker.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    StringBuilder order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +20,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // A StringBuilder to store the order in before we send it with email.
-        StringBuilder order = new StringBuilder();
+        order = new StringBuilder();
 
         // Getting the selected coffee from the RadioGroup.
         binding.group.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton selected = MainActivity.this.findViewById(checkedId);
+            RadioButton selected = findViewById(checkedId);
             // Clear the order before placing a new one.
             order.setLength(0);
 
-            order.append("Selected Coffee : ");
-            order.append(selected.getText().toString());
+            if (selected != null){
+                order.append("Selected Coffee : ");
+                order.append(selected.getText().toString());
+            }
         });
 
         // Once the "ORDER" button is clicked :
@@ -64,5 +67,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(email, "Choose an Email client :"));
 
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // When the mail app open, clear the order
+        order.setLength(0);
+        binding.group.clearCheck();
     }
 }
