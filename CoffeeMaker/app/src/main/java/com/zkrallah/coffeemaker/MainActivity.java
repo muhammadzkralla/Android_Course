@@ -51,8 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
             // Getting the comment from the EditText.
             String comment = binding.edtTxt.getText().toString();
-            order.append("\nand Comment : ");
-            order.append(comment);
+            if (!comment.isEmpty()){
+                order.append("\nand Comment : ");
+                order.append(comment);
+            }
 
 
             // Sending the E-mail with the intent.
