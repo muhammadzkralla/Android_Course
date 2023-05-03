@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Pass the list of employees we got from the Database to the Adapter
         // to create a new item for each employee with his data.
-        // After that we set the adapter to the RecyclerView.
         MainAdapter adapter = new MainAdapter(MainActivity.this, data);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
 
+        // Set the Adapter and Layout Manager of the RecyclerView.
         binding.recycler.setAdapter(adapter);
         binding.recycler.setLayoutManager(layoutManager);
 
