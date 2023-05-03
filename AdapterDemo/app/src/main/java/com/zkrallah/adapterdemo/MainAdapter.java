@@ -16,6 +16,10 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+
+    /** STEP ONE **/
+
+    // Context and List of objects must be passed to the Adapter.
     Context context;
     List<Employee> list;
 
@@ -24,27 +28,42 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         this.list = list;
     }
 
+    /** STEP TWO **/
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Here we pass the ViewHolder that contains the Views of the item.
         return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false));
     }
+
+    /** STEP FOUR **/
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.name.setText("Name : " + list.get(position).name);
-        holder.jobTitle.setText("Job Title : " + list.get(position).jobTitle);
-        holder.salary.setText("Salary : " + list.get(position).salary + " $");
-        Glide.with(holder.img).load(list.get(position).img).into(holder.img);
+        // This is the current object in the list. (position is 0 at the beginning and increase until the size of the list)
+        Employee current = list.get(position);
+
+        // Here we fill the data of the item with the current object in the list.
+        holder.name.setText("Name : " + current.name);
+        holder.jobTitle.setText("Job Title : " + current.jobTitle);
+        holder.salary.setText("Salary : " + current.salary + " $");
+        Glide.with(holder.img).load(current.img).into(holder.img);
     }
+
+    /** STEP TWO **/
 
     @Override
     public int getItemCount() {
+        // Return the size of the list of objects.
         return list.size();
     }
 
+    /** STEP THREE **/
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        // Here we declare the views inside the item. (TextViews, ImageViews... etc)
         TextView name;
         TextView jobTitle;
         TextView salary;
@@ -52,6 +71,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+             // Get each View by its id.
              name = itemView.findViewById(R.id.name);
              jobTitle = itemView.findViewById(R.id.job_title);
              salary = itemView.findViewById(R.id.salary);
