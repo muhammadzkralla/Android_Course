@@ -26,8 +26,11 @@ public class StoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentStoriesBinding.inflate(inflater, container, false);
 
+        // Get our data that will be showed on the screen.
         List<Story> list = getData();
 
+        // Create the adapter instance of the StoryAdapter with the data that
+        // the adapter will distribute over the recycler view.
         StoryAdapter adapter = new StoryAdapter(list, getActivity());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
