@@ -26,8 +26,11 @@ public class CallsFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentCallsBinding.inflate(inflater, container, false);
 
+        // Get our data that will be showed on the screen.
         List<Call> list = getData();
 
+        // Create the adapter instance of the CallAdapter with the data that
+        // the adapter will distribute over the recycler view.
         CallAdapter adapter = new CallAdapter(list, getActivity());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
