@@ -10,10 +10,14 @@ import com.zkrallah.fragments.ui.ChatsFragment;
 import com.zkrallah.fragments.ui.StoriesFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
+
+    // Constructor to pass the Activity that will host our fragments. (Like Context)
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
+
+    // Here we switch between the fragment that is shown in the host activity.
     @NonNull
     @Override
     public Fragment createFragment(int position) {
@@ -29,6 +33,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         }
     }
 
+    // Total count of fragments we will host.
     @Override
     public int getItemCount() {
         return 3;
