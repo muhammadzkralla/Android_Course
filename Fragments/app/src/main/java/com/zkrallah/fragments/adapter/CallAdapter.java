@@ -17,6 +17,10 @@ import com.zkrallah.fragments.model.Call;
 import java.util.List;
 
 public class CallAdapter extends RecyclerView.Adapter<CallAdapter.ViewHolder> {
+
+    /** STEP ONE **/
+
+    // Context and List of objects must be passed to the Adapter.
     List<Call> list;
     Context context;
 
@@ -25,33 +29,47 @@ public class CallAdapter extends RecyclerView.Adapter<CallAdapter.ViewHolder> {
         this.context = context;
     }
 
+    /** STEP TWO **/
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Here we pass the ViewHolder that contains the Views of the item.
         return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.call_item, parent, false));
     }
 
+    /** STEP FOUR **/
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // This is the current object in the list. (position is 0 at the beginning and increase until the size of the list)
         Call current = list.get(position);
 
+        // Here we fill the data of the item with the current object in the list.
         holder.name.setText(current.getName());
         holder.date.setText(current.getDate());
         Glide.with(holder.img).load(current.getImg()).into(holder.img);
     }
 
+    /** STEP TWO **/
+
     @Override
     public int getItemCount() {
+        // Return the size of the list of objects.
         return list.size();
     }
 
+    /** STEP THREE **/
+
     static class ViewHolder extends RecyclerView.ViewHolder{
+        // Here we declare the views inside the item. (TextViews, ImageViews... etc)
         TextView name;
         TextView date;
         ImageView img;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            // Get each View by its id.
             name = itemView.findViewById(R.id.name);
             date = itemView.findViewById(R.id.date);
             img = itemView.findViewById(R.id.img);
