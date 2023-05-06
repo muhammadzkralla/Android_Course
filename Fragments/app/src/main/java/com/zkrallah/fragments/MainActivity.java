@@ -22,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Create the instance of the ViewPagerAdapter that will handle our fragments
+        // and pass this activity as the hosting activity for the fragments.
         adapter = new ViewPagerAdapter(this);
         binding.viewPager.setAdapter(adapter);
 
+        // Sync the tabs with the ViewPager.
         binding.tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Sync the ViewPager with the tabs.
         binding.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
