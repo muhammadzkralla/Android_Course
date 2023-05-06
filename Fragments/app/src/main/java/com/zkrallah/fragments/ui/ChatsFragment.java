@@ -26,8 +26,11 @@ public class ChatsFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentChatsBinding.inflate(inflater, container, false);
 
+        // Get our data that will be showed on the screen.
         List<Chat> list = getData();
 
+        // Create the adapter instance of the ChatAdapter with the data that
+        // the adapter will distribute over the recycler view.
         ChatAdapter adapter = new ChatAdapter(list, getActivity());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
